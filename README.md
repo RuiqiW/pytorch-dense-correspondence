@@ -1,3 +1,14 @@
+### Updated Environment
+
+Using python3.10
+```
+conda create --name densenet
+conda activate densenet
+pip install -r requirements.txt
+```
+
+
+
 ### Updates 
 
 - September 4, 2018: Tutorial and data now available!  [We have a tutorial now available here](./doc/tutorial_getting_started.md), which walks through step-by-step of getting this repo running.

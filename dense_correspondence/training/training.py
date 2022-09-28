@@ -154,8 +154,8 @@ class DenseCorrespondenceTraining(object):
         d['train'] = dict()
         d['test'] = dict()
 
-        for key, val in d.iteritems():
-            for field in logging_dict[key].keys():
+        for key, val in d.items():
+            for field in list(logging_dict[key].keys()):
                 vec = logging_dict[key][field]
 
                 if len(vec) > 0:
@@ -196,7 +196,7 @@ class DenseCorrespondenceTraining(object):
             model_param_file = prefix + ".pth"
             optim_param_file = prefix + ".pth.opt"
 
-        print "model_param_file", model_param_file
+        print("model_param_file", model_param_file)
         model_param_file = os.path.join(model_folder, model_param_file)
         optim_param_file = os.path.join(model_folder, optim_param_file)
 
@@ -302,7 +302,7 @@ class DenseCorrespondenceTraining(object):
                 metadata = data
 
                 if (match_type == -1).all():
-                    print "\n empty data, continuing \n"
+                    print("\n empty data, continuing \n")
                     continue
 
 
@@ -473,7 +473,7 @@ class DenseCorrespondenceTraining(object):
 
         self._logging_dir = os.path.join(utils.convert_data_relative_path_to_absolute_path(self._config['training']['logging_dir']), dir_name)
 
-        print "logging_dir:", self._logging_dir
+        print("logging_dir:", self._logging_dir)
 
         if os.path.isdir(self._logging_dir):
             shutil.rmtree(self._logging_dir)

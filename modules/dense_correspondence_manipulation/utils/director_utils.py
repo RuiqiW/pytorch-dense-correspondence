@@ -51,7 +51,7 @@ def getCameraTransform(camera):
 
     forward_dir = focal_point - position
     if np.linalg.norm(forward_dir) < 1e-8:
-        print "forward_dir norm was very small, setting to [1,0,0]"
+        print("forward_dir norm was very small, setting to [1,0,0]")
         forward_dir = [1.0, 0.0, 0.0]
 
     up_dir = np.array(view_up)

@@ -67,8 +67,8 @@ def compute_descriptor_images_for_single_scene(dataset, scene_name, dcn, save_di
         descriptor_filename = os.path.join(save_dir, SceneStructure.descriptor_image_filename(img_idx))
         np.save(descriptor_filename, res)
 
-        print "descriptor_filename", descriptor_filename
-        print "processing image %d of %d" %(counter, num_images)
+        print("descriptor_filename", descriptor_filename)
+        print("processing image %d of %d" %(counter, num_images))
         counter += 1
 
 
@@ -96,5 +96,5 @@ if __name__ == "__main__":
     compute_descriptor_images_for_single_scene(dataset, scene_name, dcn, save_dir)
 
 
-    print "finished cleanly"
+    print("finished cleanly")
 

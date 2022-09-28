@@ -30,7 +30,7 @@ def draw_points(img, img_points_picked):
 
 def next_image_pair_from_saved():
     global img1, img2, index_of_pair_to_display
-    print annotated_data[index_of_pair_to_display]
+    print(annotated_data[index_of_pair_to_display])
     annotated_pair = annotated_data[index_of_pair_to_display]
     
     scene_name_1 = annotated_pair["image_a"]["scene_name"]
@@ -42,8 +42,8 @@ def next_image_pair_from_saved():
     img1_points_picked = annotated_pair["image_a"]["pixels"]
     img2_points_picked = annotated_pair["image_b"]["pixels"]
 
-    print img1_points_picked
-    print img2_points_picked
+    print(img1_points_picked)
+    print(img2_points_picked)
 
     img1 = pil_image_to_cv2(sd.get_rgb_image_from_scene_name_and_idx(scene_name_1, image_1_idx))
     img2 = pil_image_to_cv2(sd.get_rgb_image_from_scene_name_and_idx(scene_name_2, image_2_idx))
@@ -66,7 +66,7 @@ while(1):
     if k == 27:
         break
     elif k == ord('n'):
-        print "HEY"
+        print("HEY")
         next_image_pair_from_saved()
         
 cv2.destroyAllWindows()

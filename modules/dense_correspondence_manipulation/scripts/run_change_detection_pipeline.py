@@ -33,15 +33,15 @@ def run(data_folder, config_file):
     #     print "finished converting ply to vtp\n\n"
 
     cmd = "run_change_detection.py --data_dir " + data_folder
-    print "cmd: ", cmd
+    print("cmd: ", cmd)
     os.system(cmd)
-    print "finished running change detection"
+    print("finished running change detection")
 
     cmd = "render_depth_images.py --data_dir " + data_folder
-    print "\nrendering depth images"
-    print "cmd"
+    print("\nrendering depth images")
+    print("cmd")
     os.system(cmd)
-    print "finished rendering depth images"
+    print("finished rendering depth images")
 
 
 def already_ran_change_detection(processed_dir):
@@ -50,7 +50,7 @@ def already_ran_change_detection(processed_dir):
     return (os.path.isfile(file_to_check_1) and os.path.isfile(file_to_check_2))
 
 def run_on_all_subfolders(directory, config_file):
-    print "running on all subfolders"
+    print("running on all subfolders")
 
     for dir in sorted(os.listdir(directory)):
         full_dir = os.path.join(directory, dir)
@@ -64,7 +64,7 @@ def run_on_all_subfolders(directory, config_file):
             raise ValueError("Need to extract and run fusion on " + full_dir)
 
         if already_ran_change_detection(processed_dir):
-            print "already_ran_change_detection for", processed_dir
+            print("already_ran_change_detection for", processed_dir)
             continue
 
         # print "full_dir", full_dir
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     data_folder = args.data_dir
 
     if args.current_dir:
-        print "running with data_dir set to current working directory . . . "
+        print("running with data_dir set to current working directory . . . ")
         data_folder = os.getcwd()
 
     # run(data_folder, config_file=args.config_file)

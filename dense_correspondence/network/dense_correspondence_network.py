@@ -503,9 +503,9 @@ class DenseCorrespondenceNetwork(nn.Module):
         height, width, _ = res_a.shape
 
         if debug:
-            print "height: ", height
-            print "width: ", width
-            print "res_b.shape: ", res_b.shape
+            print("height: ", height)
+            print("width: ", width)
+            print("res_b.shape: ", res_b.shape)
 
 
         # non-vectorized version

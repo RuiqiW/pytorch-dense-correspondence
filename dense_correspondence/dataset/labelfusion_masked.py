@@ -1,10 +1,10 @@
-from dense_correspondence_dataset_masked import DenseCorrespondenceDataset
+from .dense_correspondence_dataset_masked import DenseCorrespondenceDataset
 
 import os
 
 class LabelFusionDataset(DenseCorrespondenceDataset):
     def __init__(self, debug):
-    	self.logs_root_path = self.load_from_config_yaml("relative_path_to_labelfusion_logs_test")
+        self.logs_root_path = self.load_from_config_yaml("relative_path_to_labelfusion_logs_test")
 
         # 5 drill scenes
         self.scenes = ["2017-06-13-12",
@@ -16,14 +16,14 @@ class LabelFusionDataset(DenseCorrespondenceDataset):
         #self.scenes = ["2017-06-13-12"] # just drill scene in tool area
 
         self.init_length()
-        print "Using LabelFusionDataset with:"
-        print "   - number of scenes:", len(self.scenes)
-        print "   - total images:    ", self.num_images_total
+        print("Using LabelFusionDataset with:")
+        print("   - number of scenes:", len(self.scenes))
+        print("   - total images:    ", self.num_images_total)
 
         DenseCorrespondenceDataset.__init__(self, debug=debug)
 
     def get_pose(self, rgb_filename):
-    	time_filename = self.get_time_filename(rgb_filename)
+        time_filename = self.get_time_filename(rgb_filename)
         time = self.get_time(time_filename)
         scene_directory = time_filename.split("images")[0]
         pose_list = self.get_pose_list(scene_directory, "posegraph.posegraph")
@@ -55,5 +55,5 @@ class LabelFusionDataset(DenseCorrespondenceDataset):
             if (time <= float(pose[0])):
                 pose = [float(x) for x in pose[1:]]
                 return pose
-        print "did not find matching pose, must be at end of list"
+        print("did not find matching pose, must be at end of list")
         return pose

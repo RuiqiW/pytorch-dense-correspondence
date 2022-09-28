@@ -88,7 +88,7 @@ class KeypointAnnotationsPandasTemplate(PandaDataFrameWrapper):
         pd_dataframe_list = []
 
         for d in keypoint_annotations:
-            for keypoint, keypoint_data in d['keypoints'].iteritems():
+            for keypoint, keypoint_data in d['keypoints'].items():
                 dft = KeypointAnnotationsPandasTemplate()
                 dft.set_value('scene_name', d['scene_name'])
                 dft.set_value('image_idx', d['image_idx'])
@@ -123,7 +123,7 @@ def extract_descriptor_images_for_scene(dcn, dataset, scene_name, save_dir,
     """
 
     pose_data = dataset.get_pose_data(scene_name)
-    image_idxs = pose_data.keys()
+    image_idxs = list(pose_data.keys())
     image_idxs.sort()
 
     num_images = len(pose_data)
@@ -143,7 +143,7 @@ def extract_descriptor_images_for_scene(dcn, dataset, scene_name, save_dir,
     for counter, img_idx in enumerate(image_idxs):
 
         if (counter % logging_frequency) == 0:
-            print "processing image %d of %d" % (counter, num_images)
+            print("processing image %d of %d" % (counter, num_images))
 
         rgb_img = dataset.get_rgb_image_from_scene_name_and_idx(scene_name, img_idx)
 
@@ -157,4 +157,4 @@ def extract_descriptor_images_for_scene(dcn, dataset, scene_name, save_dir,
 
 
     elapsed_time = time.time() - start_time
-    print "computing descriptor images took %d seconds" % (elapsed_time)
+    print("computing descriptor images took %d seconds" % (elapsed_time))

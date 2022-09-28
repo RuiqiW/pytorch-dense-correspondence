@@ -273,7 +273,7 @@ class HeatmapVisualization(object):
         img_2_with_reticle = np.copy(self.img2)
 
 
-        print "\n\n"
+        print("\n\n")
 
         self._res_uv = dict()
 
@@ -285,12 +285,12 @@ class HeatmapVisualization(object):
             res_b = self._res_b[network_name]
             best_match_uv, best_match_diff, norm_diffs = \
                 DenseCorrespondenceNetwork.find_best_match((u, v), res_a, res_b)
-            print "\n\n"
-            print "network_name:", network_name
-            print "scene_name_1", self._scene_name_1
-            print "image_1_idx", self._image_1_idx
-            print "scene_name_2", self._scene_name_2
-            print "image_2_idx", self._image_2_idx
+            print("\n\n")
+            print("network_name:", network_name)
+            print("scene_name_1", self._scene_name_1)
+            print("image_1_idx", self._image_1_idx)
+            print("scene_name_2", self._scene_name_2)
+            print("image_2_idx", self._image_2_idx)
 
             d = dict()
             d['scene_name'] = self._scene_name_1
@@ -299,19 +299,19 @@ class HeatmapVisualization(object):
             d['u'] = u
             d['v'] = v
 
-            print "\n-------keypoint info\n", d
-            print "\n--------\n"
+            print("\n-------keypoint info\n", d)
+            print("\n--------\n")
 
             self._res_uv[network_name] = dict()
             self._res_uv[network_name]['source'] = res_a[v, u, :].tolist()
             self._res_uv[network_name]['target'] = res_b[v, u, :].tolist()
 
-            print "res_a[v, u, :]:", res_a[v, u, :]
-            print "res_b[v, u, :]:", res_b[best_match_uv[1], best_match_uv[0], :]
+            print("res_a[v, u, :]:", res_a[v, u, :])
+            print("res_b[v, u, :]:", res_b[best_match_uv[1], best_match_uv[0], :])
 
-            print "%s best match diff: %.3f" %(network_name, best_match_diff)
-            print "res_a", self._res_uv[network_name]['source']
-            print "res_b", self._res_uv[network_name]['target']
+            print("%s best match diff: %.3f" %(network_name, best_match_diff))
+            print("res_a", self._res_uv[network_name]['source'])
+            print("res_b", self._res_uv[network_name]['target'])
 
             threshold = self._config["norm_diff_threshold"]
             if network_name in self._config["norm_diff_threshold_dict"]:
@@ -351,10 +351,10 @@ class HeatmapVisualization(object):
                 self._compute_descriptors()
             elif k == ord('p'):
                 if self._paused:
-                    print "un pausing"
+                    print("un pausing")
                     self._paused = False
                 else:
-                    print "pausing"
+                    print("pausing")
                     self._paused = True
 
 
@@ -364,7 +364,7 @@ if __name__ == "__main__":
     config = utils.getDictFromYamlFilename(config_file)
 
     heatmap_vis = HeatmapVisualization(config)
-    print "starting heatmap vis"
+    print("starting heatmap vis")
     heatmap_vis.run()
     cv2.destroyAllWindows()
 

@@ -17,6 +17,7 @@ file and re-save it as an ascii ply file.
 
 
 import os
+import sys
 from director import ioUtils
 from director import vtkNumpy as vnp
 
@@ -27,9 +28,9 @@ if __name__ == '__main__':
     outputFilename = os.path.splitext(filename)[0] + '.vtp'
 
 
-    print "reading poly data"
+    print("reading poly data")
     polyData = ioUtils.readPolyData(filename)
-    print "finished reading poly data"
+    print("finished reading poly data")
 
     # TODO:
     # This should just be fixed in ioUtils.readPolyData, but for now
@@ -40,5 +41,5 @@ if __name__ == '__main__':
     newPolyData = vnp.numpyToPolyData(points, createVertexCells=True)
     polyData.SetVerts(newPolyData.GetVerts())
 
-    print 'writing:', outputFilename
+    print('writing:', outputFilename)
     ioUtils.writePolyData(polyData, outputFilename)

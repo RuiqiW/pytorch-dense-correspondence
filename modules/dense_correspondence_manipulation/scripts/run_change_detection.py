@@ -78,7 +78,7 @@ if __name__ == "__main__":
     data_folder = args.data_dir
 
     if args.current_dir:
-        print "running with data_dir set to current working directory . . . "
+        print("running with data_dir set to current working directory . . . ")
         data_folder = os.getcwd()
     elif args.data_dir:
         data_folder = args.data_dir

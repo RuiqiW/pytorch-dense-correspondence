@@ -25,9 +25,9 @@ This should be launched from the <path_to_log_folder>/processed location
 """
 if __name__ == "__main__":
 
-    print "\n--------------------------------\n"
-    print "Have you disabled anti-aliasing in nvidia-settings? If not this won't work correctly"
-    print "\n--------------------------------\n"
+    print("\n--------------------------------\n")
+    print("Have you disabled anti-aliasing in nvidia-settings? If not this won't work correctly")
+    print("\n--------------------------------\n")
 
     parser = argparse.ArgumentParser()
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     if args.data_dir:
         data_folder = args.data_dir
     else:
-        print "running with data_dir set to current working directory . . . "
+        print("running with data_dir set to current working directory . . . ")
         data_folder = os.getcwd()
 
 

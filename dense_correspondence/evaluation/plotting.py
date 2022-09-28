@@ -39,7 +39,7 @@ def normalize_descriptor_pair(res_a, res_b):
     normed_res_a = np.zeros_like(res_a)
     normed_res_b = np.zeros_like(res_b)
 
-    for d in xrange(D):
+    for d in range(D):
         both_min = min(np.min(res_a[:,:,d]), np.min(res_b[:,:,d]))
         both_max = max(np.max(res_a[:,:,d]), np.max(res_b[:,:,d]))
         scale_factor = both_max - both_min
@@ -62,7 +62,7 @@ def normalize_masked_descriptor_pair(res_a, res_b, mask_a, mask_b):
     normed_res_a = np.zeros_like(res_a)
     normed_res_b = np.zeros_like(res_b)
 
-    for d in xrange(D):
+    for d in range(D):
         res_a_d = res_a_temp[:,:,d]
         res_b_d = res_b_temp[:,:,d]
 

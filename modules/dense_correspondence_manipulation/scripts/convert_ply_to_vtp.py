@@ -57,14 +57,14 @@ def run(data_folder, ply_binary_filename='images.ply'):
     convert_ply_to_vtp_script = os.path.join(dc_source_dir, 'modules',
                                              'dense_correspondence_manipulation', 'scripts', 'convertPlyToVtp.py')
 
-    print "converted to ascii ply format"
+    print("converted to ascii ply format")
 
     os.system("directorPython " + convert_ply_to_vtp_script + " " + converted_ascii_modified_header_filename)
 
 
     converted_ascii_modified_header_vtp_filename = os.path.join(data_folder, "converted_to_ascii_modified_header.vtp")
 
-    print "finished convert_ply_to_vtp_script"
+    print("finished convert_ply_to_vtp_script")
 
     # clean up and rename
     # os.system("rm *.ply *.freiburg")

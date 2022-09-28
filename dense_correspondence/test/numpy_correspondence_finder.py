@@ -42,7 +42,7 @@ def find_pixel_correspondence(log_dir, img_a, img_b, uv_a=None):
             if (time <= float(pose[0])):
                 pose = [float(x) for x in pose[1:]]
                 return pose
-        print "did not find matching pose"
+        print("did not find matching pose")
 
     img1_pose = get_pose(img1_time, pose_list)
     img2_pose = get_pose(img2_time, pose_list)
@@ -75,7 +75,7 @@ def find_pixel_correspondence(log_dir, img_a, img_b, uv_a=None):
 
     if uv_a is None:
         uv_a = rand_select_pixel(width=640,height=480)
-    print uv_a
+    print(uv_a)
 
     body_to_rdf = numpy.zeros((3,3))
     body_to_rdf[0,1] = -1.0
@@ -92,7 +92,7 @@ def find_pixel_correspondence(log_dir, img_a, img_b, uv_a=None):
     K_inv = inv(K)
 
     depth = img1_depth[uv_a[::-1]]*1.0/1000
-    print "depth, ", depth
+    print("depth, ", depth)
     u = uv_a[0]
     v = uv_a[1]
 
@@ -125,5 +125,5 @@ def find_pixel_correspondence(log_dir, img_a, img_b, uv_a=None):
     u2 = vec2[0]/vec2[2]
     v2 = vec2[1]/vec2[2]
     uv_b = (u2, v2)
-    print uv_b
+    print(uv_b)
     return (uv_a, uv_b)

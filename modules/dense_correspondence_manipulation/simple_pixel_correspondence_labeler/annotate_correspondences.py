@@ -38,7 +38,7 @@ def get_cv2_img_pair_from_spartan():
         if scene_name_b != scene_name_a:
             break    
         if i == (num_attempts - 1):
-            print "Failed at randomly getting two different scenes"
+            print("Failed at randomly getting two different scenes")
             exit()
     
     if USE_FIRST_IMAGE:
@@ -148,14 +148,14 @@ if __name__ == "__main__":
         if k == 27:
             break
         elif k == ord('a'):
-            print ix,iy
+            print(ix,iy)
         elif k == ord('s'):
             if not check_same_length(img1_points_picked, img2_points_picked):
-                print "can't save when not same length"
-                print "try choosing a new image pair"
-                print "or picking more points on the one with less points"
+                print("can't save when not same length")
+                print("try choosing a new image pair")
+                print("or picking more points on the one with less points")
             else:
-                print "saving"
+                print("saving")
                 new_dict = make_savable_correspondence_pairs()
                 annotated_data.append(new_dict)
                 utils.saveToYaml(annotated_data, "new_annotated_pairs.yaml")

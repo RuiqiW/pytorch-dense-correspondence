@@ -7,6 +7,12 @@ conda activate densenet
 pip install -r requirements.txt
 ```
 
+#### setup environment variables
+```
+conda env config vars DC_SOURCE_DIR=/path/to/pytorch-dense-correspondence
+conda env config vars set DC_DATA_DIR=/path/to/pytorch-dense-correspondence/data/pdc
+```
+reactivate conda environment
 
 
 

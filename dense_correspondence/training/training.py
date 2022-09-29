@@ -18,6 +18,7 @@ import torch.optim as optim
 
 
 import tensorboard_logger
+import pdb
 
 
 
@@ -300,6 +301,8 @@ class DenseCorrespondenceTraining(object):
                 background_non_matches_a, background_non_matches_b, \
                 blind_non_matches_a, blind_non_matches_b, \
                 metadata = data
+                
+#                 pdb.set_trace()
 
                 if (match_type == -1).all():
                     print("\n empty data, continuing \n")

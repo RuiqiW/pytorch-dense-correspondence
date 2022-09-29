@@ -1,10 +1,10 @@
-### Updated Environment
+### New Code Setup
 
-Using python3.10
+Install python3.10, conda, jupyter notebook
 ```
 conda create --name densenet
 conda activate densenet
-pip install -r requirements.txt
+pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 #### setup environment variables

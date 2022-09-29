@@ -326,8 +326,8 @@ class DenseCorrespondenceNetwork(nn.Module):
         :return:
         :rtype:
         """
-        u = min(int(round(uv[0])), self._image_width - 1)
-        v = min(int(round(uv[1])), self._image_height - 1)
+        u = min(int(torch.round(uv[0])), self._image_width - 1)
+        v = min(int(torch.round(uv[1])), self._image_height - 1)
         return [u, v]
 
     def load_training_dataset(self):

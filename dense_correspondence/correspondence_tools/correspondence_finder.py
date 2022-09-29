@@ -116,7 +116,7 @@ def random_sample_from_masked_image_torch(img_mask, num_samples):
 
     rand_numbers = torch.rand(num_samples)*len(mask_indices_flat)
     rand_indices = torch.floor(rand_numbers).long()
-    uv_vec_flattened = torch.index_select(mask_indices_flat, 0, rand_indices).squeeze(1)
+    uv_vec_flattened = torch.index_select(mask_indices_flat, 0, rand_indices).squeeze(1) 
     uv_vec = utils.flattened_pixel_locations_to_u_v(uv_vec_flattened, image_width)
     return uv_vec
 

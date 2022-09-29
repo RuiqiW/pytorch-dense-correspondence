@@ -5,7 +5,7 @@ from torch.autograd import Variable
 class PixelwiseContrastiveLoss(object):
 
     def __init__(self, image_shape, config=None):
-    	self.type = "pixelwise_contrastive"
+        self.type = "pixelwise_contrastive"
         self.image_width  = image_shape[1]
         self.image_height = image_shape[0]
 

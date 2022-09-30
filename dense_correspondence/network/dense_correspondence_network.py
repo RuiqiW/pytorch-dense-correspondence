@@ -283,7 +283,7 @@ class DenseCorrespondenceNetwork(nn.Module):
         img_tensor = img_tensor.unsqueeze(0)
 
         # make sure it's on the GPU
-        img_tensor = torch.tensor(img_tensor, device=torch.device("cuda"))
+        img_tensor = img_tensor.cuda()
 
 
         res = self.forward(img_tensor) # shape [1,D,H,W]

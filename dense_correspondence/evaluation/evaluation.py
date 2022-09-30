@@ -602,8 +602,12 @@ class DenseCorrespondenceEvaluation(object):
 
     @staticmethod
     def clip_pixel_to_image_size_and_round(uv, image_width, image_height):
-        u = min(int(round(uv[0])), image_width - 1)
-        v = min(int(round(uv[1])), image_height - 1)
+        if torch.is_tensor(uv[0]):
+            u = min(int(torch.round(uv[0])), image_width - 1)
+            v = min(int(torch.round(uv[1])), image_height - 1)
+        else:
+            u = min(int(round(uv[0])), image_width - 1)
+            v = min(int(round(uv[1])), image_height - 1)
         return (u,v)
 
     @staticmethod
@@ -1403,12 +1407,13 @@ class DenseCorrespondenceEvaluation(object):
             # convert to (u,v) format
             pixel_a = [sampled_idx_list[1][i], sampled_idx_list[0][i]]
             best_match_uv, best_match_diff, norm_diffs =\
-                DenseCorrespondenceNetwork.find_best_match(pixel_a, res_a,
-                                                                                                     res_b)
+                DenseCorrespondenceNetwork.find_best_match(pixel_a, res_a, res_b)
+            
+#             print(type(pixel_a[0]), type(pixel_a[1]), type(best_match_uv[0]), type(best_match_uv[1])) # numpy.int64
 
             # be careful, OpenCV format is  (u,v) = (right, down)
-            kp1.append(cv2.KeyPoint(pixel_a[0], pixel_a[1], diam))
-            kp2.append(cv2.KeyPoint(best_match_uv[0], best_match_uv[1], diam))
+            kp1.append(cv2.KeyPoint(pixel_a[0].astype(np.float32), pixel_a[1].astype(np.float32), diam))
+            kp2.append(cv2.KeyPoint(best_match_uv[0].astype(np.float32), best_match_uv[1].astype(np.float32), diam))
             matches.append(cv2.DMatch(i, i, dist))
 
         gray_a_numpy = cv2.cvtColor(np.asarray(rgb_a), cv2.COLOR_BGR2GRAY)

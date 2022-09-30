@@ -255,7 +255,7 @@ def compute_angle_between_quaternions(q, r):
     :rtype:
     """
 
-    theta = 2*np.arccos(2 * np.dot(q,r)**2 - 1)
+    theta = 2.0 * np.arccos(2.0 * np.dot(q,r)**2 - 1.0)
     return theta
 
 def compute_angle_between_poses(pose_a, pose_b):

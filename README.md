@@ -1,6 +1,6 @@
 ### New Code Setup
 
-Install python3.10, conda, jupyter notebook
+Install python3, conda, jupyter notebook
 ```
 conda create --name densenet
 conda activate densenet
@@ -9,7 +9,7 @@ pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable
 
 #### setup environment variables
 ```
-conda env config vars DC_SOURCE_DIR=/path/to/pytorch-dense-correspondence
+conda env config vars set DC_SOURCE_DIR=/path/to/pytorch-dense-correspondence
 conda env config vars set DC_DATA_DIR=/path/to/pytorch-dense-correspondence/data/pdc
 ```
 reactivate conda environment
